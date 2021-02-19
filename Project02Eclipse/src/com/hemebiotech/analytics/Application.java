@@ -7,7 +7,9 @@ public class Application {
 		String outputFilePath = "Project02Eclipse/results.out";
 
 		AnalyticsCounter analyticsCounter = new AnalyticsCounter(inputFilePath, outputFilePath);
-		System.out.println("La liste des symptomes et des occurences" + outputFilePath);
+		analyticsCounter.analyze();
+		analyticsCounter.saveResult();
+		System.out.println("Analyse effectuée. Résultats disponibles dans le fichier" + " " + outputFilePath + "\n");
 
 	}
 

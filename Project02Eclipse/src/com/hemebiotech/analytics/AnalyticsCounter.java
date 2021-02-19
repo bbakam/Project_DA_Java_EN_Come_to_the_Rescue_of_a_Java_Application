@@ -7,21 +7,34 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class AnalyticsCounter {
+public class AnalyticsCounter implements ISymptomReader {
 	private String inputFilePath;
 	private String outputFilePath;
 	Map<String, Integer> symptomsOccurence = new TreeMap<String, Integer>();
-	// TreeMap permet de classer les éléments de ma map dans l'ordre alphabétique
+	// TreeMappour structurer les éléments de ma liste dans l'ordre alphabétique
 
+	public void analyze() {
+		readSymptoms();
+	}
+
+	@Override
 	public void saveResult() {
-		try {
-			FileWriter writer = new FileWriter(outputFilePath);
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+		try (FileWriter writer = new FileWriter(outputFilePath);) {
+			for (Map.Entry<String, Integer> entry : symptomsOccurence.entrySet()) {
+				writer.write(entry.getKey() + " " + "=" + " " + entry.getValue() + "\n");
+			}
+		} catch (Exception e) {
+			System.out.println("Erreur lors de la sauvegarde du fichier" + e.getMessage());
 		}
 	}
 
+	public AnalyticsCounter(String inputFilePath, String outputFilePath) {
+		super();
+		this.inputFilePath = inputFilePath;
+		this.outputFilePath = outputFilePath;
+	}
+
+	@Override
 	public Map<String, Integer> readSymptoms() {
 		try (BufferedReader reader = new BufferedReader(new FileReader(this.inputFilePath));) {
 			String line = reader.readLine();
@@ -39,11 +52,6 @@ public class AnalyticsCounter {
 		return symptomsOccurence;
 	}
 
-	public AnalyticsCounter(String inputFilePath, String outputFilePath) {
-		super();
-		this.inputFilePath = inputFilePath;
-		this.outputFilePath = outputFilePath;
-	}
 }
 
 // next generate output
