@@ -6,6 +6,10 @@ public class Application {
 		String inputFilePath = "Project02Eclipse/symptoms.txt";
 		String outputFilePath = "Project02Eclipse/results.out";
 
+		AnalyticsCounter analyticsCounter = new AnalyticsCounter(inputFilePath, outputFilePath);
+		analyticsCounter.analyze();
+		analyticsCounter.saveResult();
+		System.out.println("Analyse effectuée. Résultats disponibles dans le fichier suivant: " + outputFilePath);
 	}
 
 }
