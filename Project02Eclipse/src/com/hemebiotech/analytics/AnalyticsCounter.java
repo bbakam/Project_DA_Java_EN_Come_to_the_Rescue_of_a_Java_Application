@@ -6,11 +6,22 @@ import java.io.FileWriter;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * 
+ * @author bakarykamara
+ * @version
+ *
+ *          AnalyticsCounter
+ */
 public class AnalyticsCounter implements ISymptomReader {
 	private String inputFilePath;
 	private String outputFilePath;
 	Map<String, Integer> symptomsOccurence = new TreeMap<String, Integer>();
 
+	/**
+	 * 
+	 * @see analyse
+	 */
 	public void analyze() {
 		readSymptoms();
 	}
@@ -26,6 +37,12 @@ public class AnalyticsCounter implements ISymptomReader {
 		}
 	}
 
+	/**
+	 * 
+	 * @param inputFilePath
+	 * 
+	 * @param outputFilePath
+	 */
 	public AnalyticsCounter(String inputFilePath, String outputFilePath) {
 		super();
 		this.inputFilePath = inputFilePath;

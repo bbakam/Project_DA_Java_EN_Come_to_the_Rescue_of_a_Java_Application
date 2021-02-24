@@ -23,6 +23,10 @@ public class ReadSymptomDataFromFile {
 		this.filepath = filepath;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public List<String> GetSymptoms() {
 		ArrayList<String> result = new ArrayList<String>();
 
