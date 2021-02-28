@@ -9,7 +9,7 @@ public class Application {
 
 	/**
 	 * 
-	 * @param args
+	 * @param args chemin des fichiers d'entrée et de destination
 	 * 
 	 */
 	public static void main(String[] args) {

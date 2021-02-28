@@ -9,9 +9,9 @@ import java.util.TreeMap;
 /**
  * 
  * @author bakarykamara
- * @version
+ * @version v.0.1.
  *
- *          AnalyticsCounter
+ * 
  */
 public class AnalyticsCounter implements ISymptomReader {
 	private String inputFilePath;
@@ -20,7 +20,7 @@ public class AnalyticsCounter implements ISymptomReader {
 
 	/**
 	 * 
-	 * @see analyse
+	 * @see readSymptoms
 	 */
 	public void analyze() {
 		readSymptoms();
@@ -39,9 +39,9 @@ public class AnalyticsCounter implements ISymptomReader {
 
 	/**
 	 * 
-	 * @param inputFilePath
+	 * @param inputFilePath  est le chemin du fichier source
 	 * 
-	 * @param outputFilePath
+	 * @param outputFilePath est le chemin du fichier de destination
 	 */
 	public AnalyticsCounter(String inputFilePath, String outputFilePath) {
 		super();
@@ -50,6 +50,11 @@ public class AnalyticsCounter implements ISymptomReader {
 	}
 
 	@Override
+	/**
+	 * 
+	 * 
+	 * la méthode readSymptoms calcule les occurences des symptomes
+	 */
 	public Map<String, Integer> readSymptoms() {
 		try (BufferedReader reader = new BufferedReader(new FileReader(this.inputFilePath));) {
 			String line = reader.readLine();
