@@ -11,31 +11,11 @@ import java.util.TreeMap;
  * @author bakarykamara
  * @version v.0.1.
  *
- * 
  */
 public class AnalyticsCounter implements ISymptomReader {
 	private String inputFilePath;
 	private String outputFilePath;
 	Map<String, Integer> symptomsOccurence = new TreeMap<String, Integer>();
-
-	/**
-	 * 
-	 * @see readSymptoms
-	 */
-	public void analyze() {
-		readSymptoms();
-	}
-
-	@Override
-	public void saveResult() {
-		try (FileWriter writer = new FileWriter(outputFilePath);) {
-			for (Map.Entry<String, Integer> entry : symptomsOccurence.entrySet()) {
-				writer.write(entry.getKey() + "," + entry.getValue() + "\n");
-			}
-		} catch (Exception e) {
-			System.out.println("Erreur lors de la sauvegarde du fichier " + e.getMessage());
-		}
-	}
 
 	/**
 	 * 
@@ -70,5 +50,16 @@ public class AnalyticsCounter implements ISymptomReader {
 			System.out.println("Le fichier n'a pas pu être lu " + e.getMessage());
 		}
 		return symptomsOccurence;
+	}
+
+	@Override
+	public void saveResult() {
+		try (FileWriter writer = new FileWriter(outputFilePath);) {
+			for (Map.Entry<String, Integer> entry : symptomsOccurence.entrySet()) {
+				writer.write(entry.getKey() + "," + entry.getValue() + "\n");
+			}
+		} catch (Exception e) {
+			System.out.println("Erreur lors de la sauvegarde du fichier " + e.getMessage());
+		}
 	}
 }

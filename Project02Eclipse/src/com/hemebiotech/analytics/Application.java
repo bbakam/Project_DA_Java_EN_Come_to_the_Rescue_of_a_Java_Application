@@ -17,7 +17,7 @@ public class Application {
 		String outputFilePath = "Project02Eclipse/results.out";
 
 		AnalyticsCounter analyticsCounter = new AnalyticsCounter(inputFilePath, outputFilePath);
-		analyticsCounter.analyze();
+		analyticsCounter.readSymptoms();
 		analyticsCounter.saveResult();
 		System.out.println("Analyse effectuée. Résultats disponibles dans le fichier suivant: " + outputFilePath);
 	}
